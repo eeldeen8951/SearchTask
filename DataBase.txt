@@ -1,0 +1,145 @@
+USE [master]
+GO
+/****** Object:  Database [SearchTask]    Script Date: 1/7/2023 8:29:17 PM ******/
+CREATE DATABASE [SearchTask]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'SearchTask', FILENAME = N'D:\SQLServerDataRoot\Data\SearchTask.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'SearchTask_log', FILENAME = N'D:\SQLServerDataRoot\Data\SearchTask_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [SearchTask] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [SearchTask].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [SearchTask] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [SearchTask] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [SearchTask] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [SearchTask] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [SearchTask] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [SearchTask] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [SearchTask] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [SearchTask] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [SearchTask] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [SearchTask] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [SearchTask] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [SearchTask] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [SearchTask] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [SearchTask] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [SearchTask] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [SearchTask] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [SearchTask] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [SearchTask] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [SearchTask] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [SearchTask] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [SearchTask] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [SearchTask] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [SearchTask] SET RECOVERY FULL 
+GO
+ALTER DATABASE [SearchTask] SET  MULTI_USER 
+GO
+ALTER DATABASE [SearchTask] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [SearchTask] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [SearchTask] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [SearchTask] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [SearchTask] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [SearchTask] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'SearchTask', N'ON'
+GO
+ALTER DATABASE [SearchTask] SET QUERY_STORE = OFF
+GO
+USE [SearchTask]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 1/7/2023 8:29:18 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SKU] [nvarchar](50) NULL,
+	[Description] [nvarchar](max) NULL,
+	[Quantity] [int] NULL,
+	[Price] [decimal](18, 0) NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (0, N'as', N'asssa', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (1, N'sa', N'sasaas', 1, CAST(2 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (2, N'as', N'dzxc', 1, CAST(2 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (3, N'x', N'3asd', 2, CAST(4 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (4, N'd', N'hdsf', 3, CAST(4 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (5, N'as', N'ssasd', 1, CAST(3 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (6, N'asdf', N'zmxkc', 4, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (7, N'', N'asd', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (8, N'', N'asd2', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (9, N'', N'asd3', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (10, N'', N'asd4', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (11, N'', N'asd5', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (12, N'', N'asd6', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (13, N'', N'asd7', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (14, N'', N'asd8', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (15, N'', N'asd9', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (16, N'', N'asd0', 1, CAST(1 AS Decimal(18, 0)))
+GO
+INSERT [dbo].[Products] ([ID], [SKU], [Description], [Quantity], [Price]) VALUES (17, N'', N'asd-', 1, CAST(1 AS Decimal(18, 0)))
+GO
+SET IDENTITY_INSERT [dbo].[Products] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [SearchTask] SET  READ_WRITE 
+GO
